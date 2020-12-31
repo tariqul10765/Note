@@ -1,0 +1,34 @@
+<div class="btn">
+  <button mat-raised-button color="primary" routerLink="/list">Note list</button>
+</div>
+
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+  <mat-form-field appearance="outline">
+    <mat-label>Note title</mat-label>
+    <input matInput [(ngModel)]="user.title"
+           required
+           name="title"
+           placeholder="Note title"
+           #pickedTitle = "ngModel"
+    >
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error>This field is required!</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Note description</mat-label>
+    <input matInput [(ngModel)]="user.description"
+           required
+           name="description"
+           placeholder="Note description"
+           #pickedDes="ngModel"
+    >
+
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error>This field is required!</mat-error>
+  </mat-form-field>
+
+
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.form.valid">Submit</button>
+</form>
